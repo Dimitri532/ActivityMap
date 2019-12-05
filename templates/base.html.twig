@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
+	</head>
+	<body>
+
+		{% block header %}
+			<header>
+				<div class="navbar navbar-expand-lg navbar-dark bg-primary">
+					<div class="container d-flex justify-content-between">
+						<a href="{{ path('homepage') }}" class="navbar-brand d-flex align-items-center">
+							<strong>Activity's Map</strong>
+						</a>
+						<nav class="my-2 my-md-0">
+							<div class="collapse navbar-collapse" id="navbarColor01">
+								<ul class="navbar-nav mr-auto">
+									<li class="nav-item">
+										<a class="nav-link" href="#">Accueil</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">Destination</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">Préparer mon voyage</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">Créer une activité</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">Promotion</a>
+									</li>
+                                    <li class="nav-item">
+										<a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+									</li>
+								</ul>
+							</div>
+						</nav>
+					</div>
+				</div>
+			</header>
+
+		{% endblock %}
+
+		<main role="main">
+			<div class="bg-light">
+				<div class=""> {% block body %}{% endblock %}
+					</div>
+				</div>
+			</main>
+
+			{% block footer %}
+				<footer>
+					<div class="container">
+						<p class="float-right">
+							<a href="#">Haut de page</a>
+						</p>
+						<p>&copy; Digitalendar 2019</p>
+					</div>
+				</footer>
+			{% endblock %}
+
+			{% block javascripts %}
+				{{ encore_entry_script_tags('app') }}
+			{% endblock %}
+		</body>
+	</html>
