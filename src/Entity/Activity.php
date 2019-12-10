@@ -99,7 +99,7 @@ class Activity
     private $user;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="activities")
+     * @ORM\ManyToMany(targetEntity="App\Entity\User")
      */
     private $userLikes;
 
@@ -405,5 +405,9 @@ class Activity
         }
 
         return $this;
+    }
+    public function __toString()
+    {
+        return $this->getName();
     }
 }

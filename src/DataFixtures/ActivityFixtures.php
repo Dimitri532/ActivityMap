@@ -24,7 +24,7 @@ class ActivityFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
         $activity1 = new Activity();
-        $activity1->setName("Tour Effeil");
+        $activity1->setName("Tour Eiffel");
         $activity1->setSlug($this->slugger->slugify($activity1->getName()));
         $activity1->setDescription("La tour Eiffel est une tour de fer puddlée de 324 mètres de hauteur située à Paris, à l’extrémité nord-ouest du parc du Champ-de-Mars en bordure de la Seine dans le 7ᵉ arrondissement. Son adresse officielle est 5, avenue Anatole-France.");
         $activity1->setImage("tour-effeil.png");

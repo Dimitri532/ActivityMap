@@ -19,18 +19,21 @@
     <script>
         // Initialize and add the map
         function initMap() {
-        // The location of Uluru
-        var france = {lat: 46.227638, lng: 2.213749};
-        // The map, centered at Uluru
-        var map = new google.maps.Map(
-            document.getElementById('map'), {zoom: 4, center: france});
-        // The marker, positioned at Uluru
-        var marker = new google.maps.Marker({position: france, map: map});
-        }
 
+            fetch("{{ path('activity_index') }}", {
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+
+            // The location of Uluru
+            var france = {lat: 46.227638, lng: 2.213749};
+            // The map, centered at Uluru
+            var map = new google.maps.Map(document.getElementById('map'), {zoom: 4, center: france});
+            // The marker, positioned at Uluru
+            var marker = new google.maps.Marker({position: france, map: map});
+        }
     </script>   
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ-YMvkrVQHBxOnbQoSU33u9wmVo7P_KM&callback=initMap">
-    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ-YMvkrVQHBxOnbQoSU33u9wmVo7P_KM&libraries=places&callback=initMap"></script>
     </body>
 {% endblock %}

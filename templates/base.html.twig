@@ -11,7 +11,6 @@
 		{% endblock %}
 	</head>
 	<body>
-
 		{% block header %}
 			<header>
 				<div class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -29,10 +28,10 @@
 										<a class="nav-link" href="{{ path('destination') }}">Destination</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="#">Préparer mon voyage</a>
+										<a class="nav-link" href="{{ path('activity_index') }}">Préparer mon voyage</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="#">Créer une activité</a>
+										<a class="nav-link" href="{{ path('activity_new') }}">Créer une activité</a>
 									</li>
 									<li class="nav-item">
 										<a class="nav-link" href="#">Promotion</a>
@@ -50,29 +49,40 @@
 					</div>
 				</div>
 			</header>
-
 		{% endblock %}
 
 		<main role="main">
 			<div class="bg-light">
-				<div class=""> {% block body %}{% endblock %}
+				<div class=""> 
+				{% block body %}{% endblock %}
+				</div>
+			</div>
+		</main>
+
+		{% block footer %}
+			<footer>
+				<div class="navbar navbar-expand-lg navbar-dark bg-primary">
+					<div class="container d-flex justify-content-between">
+						<a href="{{ path('homepage') }}" class="navbar-brand d-flex align-items-center">
+							<strong>Activity's Map</strong>
+						</a>
+						<nav class="my-2 my-md-0">
+							<div>
+								<p style="color: white;">Retrouver nous sur les réseaux sociaux</p>
+							</div>
+						</nav>
+						<div>
+							<div>
+								<p style="color: white;">Newletter</p>
+							</div>
+						</div>
 					</div>
 				</div>
-			</main>
+			</footer>
+		{% endblock %}
 
-			{% block footer %}
-				<footer>
-					<div class="container">
-						<p class="float-right">
-							<a href="#">Haut de page</a>
-						</p>
-						<p>&copy; Digitalendar 2019</p>
-					</div>
-				</footer>
-			{% endblock %}
-
-			{% block javascripts %}
-				{{ encore_entry_script_tags('app') }}
-			{% endblock %}
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
 		</body>
 	</html>
